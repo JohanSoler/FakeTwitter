@@ -33,6 +33,8 @@ router.delete ('/',userController.deleteAllUsers);
  * ADD THE MISSING ROUTES ______________________________________________________ 
  */
 
+router.get('/date/:date', userController.findAllUsersByCreatedDate);
+
 // Export router
 module.exports = router;
 

@@ -222,11 +222,27 @@ async function deleteAllUsers (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function findAllUsersByCreatedDate (req, res){
-                /**
-                 * TASK:
-                 * IMPLEMENT THE FUNCTION______________________- 
-                 */
+async function findAllUsersByCreatedDate (req, res){
+    try {
+        const { date } = req.params;
+
+        //Execute query
+        const user = await dbManager.User.findOne({
+            where: {
+                creation_date: date
+            }
+        });
+        //Send response
+        res.json(user);
+
+    } catch (e) {
+        // Print error on console
+        console.log(e);
+        // Send error message as a response 
+        res.status(500).send({
+            message: "Some error occurred"
+        });
+    }
 }
 
 

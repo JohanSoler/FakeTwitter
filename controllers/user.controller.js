@@ -1,4 +1,6 @@
 const dbManager = require ('../database.config/database.manager');
+const operator = require('sequelize');
+const db = require('../database.config/database.manager');
 
 /**
  * Creation of an user
@@ -43,7 +45,7 @@ async function createUser (req, res) {
 async function findAllUsers (req, res){
     try {
         //Execute query
-        const users = await dbManager.User.findAll ();
+        const users = await dbManager.User.findAll({});
         
         //Send response
         res.json({
@@ -189,11 +191,31 @@ async function deleteUserByUsername (req, res){
  * @param {*} res 
  */
 async function deleteAllUsers (req, res){
-                /**
-                 * TASK:
-                 * IMPLEMENT THE FUNCTION______________________- 
-                 */
-}
+    /**
+    * TASK: Completed
+    * IMPLEMENT THE FUNCTION______________________- 
+    */
+
+    try{
+        
+        try{
+            while(dbManager.User.findOne()!=null){
+                const userDelete = await dbManager.User.findOne();
+                await userDelete.destroy();
+            }
+        }catch{
+            res.send({
+                message: "all users has been deleted successfully"
+            });
+        }
+    }catch(e){
+        // Print error on console
+        console.log(e);
+        // Send error message as a response 
+        res.status(500).send({
+            message: "Some error occurred"
+        });
+    }}
 
 /**
  * 

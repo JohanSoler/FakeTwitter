@@ -90,10 +90,11 @@ async function findOneUser (req, res){
  * Update user by ID
  */
 async function updateUser (req, res){
-                /**
-                 * TASK:
-                 * IMPLEMENT THE FUNCTION______________________- 
-                 */
+    /**
+    * TASK: Completed
+    * IMPLEMENT THE FUNCTION______________________- 
+    */
+
     try{
 
         const { idUser } = req.params;
@@ -126,9 +127,7 @@ async function updateUser (req, res){
             }
         ).catch (
             e => {
-                // Print error on console
                 console.log(e);
-                // Send error message as a response 
                 res.status(500).send({
                     message: "Some error occurred"
                 });
@@ -136,12 +135,12 @@ async function updateUser (req, res){
         );
 
     }catch(e){
-         // Print error on console
-         console.log(e);
-         // Send error message as a response 
-         res.status(500).send({
-             message: "Some error occurred"
-         });
+        // Print error on console
+        console.log(e);
+        // Send error message as a response 
+        res.status(500).send({
+            message: "Some error occurred"
+        });
     }
 }
 
@@ -150,11 +149,37 @@ async function updateUser (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function deleteUserByUsername (req, res){ 
-                /**
-                 * TASK:
-                 * IMPLEMENT THE FUNCTION______________________- 
-                 */
+async function deleteUserByUsername (req, res){ 
+    /**
+    * TASK: Completed
+    * IMPLEMENT THE FUNCTION______________________- 
+    */
+
+    try{
+        const { username } = req.params;
+
+        //search user by id
+        const user = await dbManager.User.findOne({
+            where: {
+                username: username
+            }
+        });
+
+        await user.destroy()
+
+        res.send({
+            message: username+" has been deleted successfully"
+        });
+
+
+    }catch(e){
+        // Print error on console
+        console.log(e);
+        // Send error message as a response 
+        res.status(500).send({
+            message: "Some error occurred"
+        });
+    }
 
 }
 
@@ -163,7 +188,7 @@ function deleteUserByUsername (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function deleteAllUsers (req, res){
+async function deleteAllUsers (req, res){
                 /**
                  * TASK:
                  * IMPLEMENT THE FUNCTION______________________- 

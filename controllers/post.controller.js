@@ -4,7 +4,7 @@
                  */
                 const dbManager = require ('../database.config/database.manager');
                 const operator = require('sequelize');
-                const db = require('../database.config/database.manager');
+                const db = require('../database.config/database.manager'); 
                 
                 async function createPost (req, res) {
                     

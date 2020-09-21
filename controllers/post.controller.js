@@ -39,6 +39,9 @@ async function createPost (req, res) {
     );
 }
 
+
+
+
 /**
  * GEt all post
  */
@@ -62,5 +65,32 @@ async function findAllPost (req, res){
     }
 }
 
+/**
+ * Get post by id
+ */
+async function findOnePost (req, res){
+    try {
+        const { idPost } = req.params;
+
+        //Execute query
+        const post = await dbManager.Post.findOne({
+            where: {
+                idPost: idPost
+            }
+        });
+        //Send response
+        res.json(post);
+
+    } catch (e) {
+        // Print error on console
+        console.log(e);
+        // Send error message as a response 
+        res.status(500).send({
+            message: "Some error occurred"
+        });
+    }
+}
+
 exports.createPost = createPost; 
 exports.findAllPost = findAllPost; 
+exports.findOnePost=findOnePost;

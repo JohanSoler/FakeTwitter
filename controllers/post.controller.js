@@ -5,6 +5,7 @@
                 const dbManager = require ('../database.config/database.manager');
                 const operator = require('sequelize');
                 const db = require('../database.config/database.manager'); 
+                const postModel = require('../model/post.model');
                 
                 async function createPost (req, res) {
                     
@@ -17,11 +18,7 @@
                     }
                     
                     // CREATING THE OBJECT TO PERSIST
-                    const newPostObject = {
-                        message: req.body.message,
-                        published_date: req.body.published_date,
-                        idUser: req.body.idUser
-                    }
+                    const newPostObject = new postModel(req.body);
                     
                     // EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
                     dbManager.Post.create(newPostObject).then (

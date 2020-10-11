@@ -1,6 +1,7 @@
 const dbManager = require ('../database.config/database.manager');
 const operator = require('sequelize');
 const db = require('../database.config/database.manager');
+const userModel = require('../model/user.model')
 
 /**
  * Creation of an user
@@ -17,10 +18,7 @@ async function createUser (req, res) {
     }
     
     // CREATING THE OBJECT TO PERSIST
-    const newUserObject = {
-        username: req.body.username,
-        creation_date: req.body.creation_date
-    }
+    const newUserObject = new userModel(req.body);
     
     // EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
     dbManager.User.create(newUserObject).then (

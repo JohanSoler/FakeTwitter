@@ -19,7 +19,8 @@
                     // CREATING THE OBJECT TO PERSIST
                     const newPostObject = {
                         message: req.body.message,
-                        published_date: req.body.published_date
+                        published_date: req.body.published_date,
+                        idUser: req.body.idUser
                     }
                     
                     // EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 

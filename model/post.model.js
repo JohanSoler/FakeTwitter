@@ -7,6 +7,7 @@ module.exports = (sequelize, Sequelize) =>{
         },
         message: Sequelize.STRING,
         published_date: Sequelize.DATE,
+        idUser : Sequelize.INTEGER
     }, {
         tableName: "posts"
     });

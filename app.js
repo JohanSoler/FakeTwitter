@@ -26,7 +26,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/post', postsRouter);
 
-const PORT = process.env.PORT || 3300;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log("SERVER IS LISTEN ON PORT:" , PORT);
 });

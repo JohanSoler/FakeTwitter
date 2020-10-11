@@ -2,10 +2,10 @@
  * Database Configuration Object
  */
 const dbconfig = {
-        HOST: "localhost",
-        USER: "root",
-        PASSWORD: "",
-        DB: "faketwitter",
+        HOST: "mariadb-13793-0.cloudclusters.net",
+        USER: "admin",
+        PASSWORD: "faketwitter123",
+        DB: "FakeTwitter",
         dialect: "mysql",
         pool: {
           max: 5,

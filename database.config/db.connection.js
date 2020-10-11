@@ -3,9 +3,7 @@ const dbConfig = require("../database.config/db.config.js");
 // IMPORT SEQUALIZE
 const Sequelize = require("sequelize");
 // CREATE A CONNECTION
-const sequelizeConnection = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
-  dialect: dbConfig.dialect,
+const sequelizeConnection = new Sequelize('mysql://admin:faketwitter123@mariadb-13793-0.cloudclusters.net:13824/FakeTwitter', {
   operatorsAliases: false,
   pool: {
     max: dbConfig.pool.max,

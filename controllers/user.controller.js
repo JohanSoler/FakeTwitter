@@ -48,9 +48,7 @@ async function findAllUsers (req, res){
         const users = await dbManager.User.findAll({});
         
         //Send response
-        res.json({
-                data: users
-        });
+        res.json(users);
 
     } catch (e) {
         // Print error on console

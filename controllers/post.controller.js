@@ -52,9 +52,7 @@
                         const post = await dbManager.Post.findAll({});
                         
                         //Send response
-                        res.json({
-                                data: post
-                        });
+                        res.json(post);
                 
                     } catch (e) {
                         // Print error on console

@@ -7,7 +7,9 @@ module.exports = (sequelize, Sequelize) =>{
         },
         message: Sequelize.STRING,
         published_date: Sequelize.DATE,
-        idUser : Sequelize.INTEGER
+        idUser : Sequelize.INTEGER,
+        device: Sequelize.STRING,
+        location: Sequelize.STRING
     }, {
         tableName: "posts"
     });

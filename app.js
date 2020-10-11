@@ -26,13 +26,17 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/post', postsRouter);
 
+const PORT = process.env.PORT || 3300;
+app.listen(PORT, () => {
+    console.log("SERVER IS LISTEN ON PORT:" , PORT);
+});
 
 /**
  * Testing the connection to the database and recreate the models if the tables doesn´t exists  
  */
 dbManager.sequelizeConnection.authenticate()
   .then(() => {
-    console.log('****Connection has been established successfully.****');
+    console.log('****Connection has been established successfully.****', '\n');
     // recreate the models if the tables doesn´t exists
     dbManager.sequelizeConnection.sync().then(() => {
         console.log("Database Synced");

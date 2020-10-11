@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "-": "0.0.1",
@@ -26,6 +26,6 @@
     "nodejs",
     "mysql"
   ],
-  "author": "Carlos Ivan Rivera Parra",
+  "author": "Johan Nicolas Soler Hernandez - Danny Jersson Ochoa Peralta - Freddy Santiago Patarroyo Fernandez",
   "license": "MIT"
 }
